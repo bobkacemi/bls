@@ -1,0 +1,42 @@
+// ==UserScript==
+// @name     Reload rdv page
+// @version  1
+// @include  https://algeria.blsspainvisa.com/book_appointment.php
+// @include  https://morocco.blsspainvisa.com/book_appointment.php
+// ==/UserScript==
+
+//window.setTimeout(function(){ location.reload(); }, 2*1000); //
+
+function sendRequest(email,phone,centre,category) {
+
+document.getElementById("email").value = email;
+document.getElementById("phone_code").value = "213";
+document.getElementById("phone").value = phone ;
+document.getElementById("centre").selectedIndex = centre;
+document.querySelector('btn-demander le code de vérification').click();
+document.getElementById("category").selectedIndex = category;
+}
+
+
+//-----------------------------------------------------------------------------------------------------------------------------
+
+sendRequest("blsazerty003@gmail.com","541461413","1","1"); // 31 Oran w 4 Alger
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------
+
+
+
+var myElement = document.getElementById('reponse_div');
+myElement.addEventListener('DOMSubtreeModified', contentChanged, false);
+var already = 0;
+function contentChanged() {
+
+  if(myElement.innerText == "Verification code sent to your phone." && already==0) {
+    window.open("https://www.youtube.com/watch?v=BQI1Fvp6rBw","_blank");
+
+  }
+
+}
